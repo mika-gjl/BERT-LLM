@@ -62,11 +62,12 @@ config = {'NYT10':
                 'thre_rc' : 0.5,
                 'thre_ee' : 0.5
             },
-        'WikiKBP': 
+        'pegazus-event-extraction': 
             {   
-                'plm_name' : 'bert-base-cased',
+                'plm_name' : 'camembert-base',
                 'maxlen' : 256,
                 'thre_rc' : 0.5,
                 'thre_ee' : 0.5
-            }
-}
+            }         
+    }
+

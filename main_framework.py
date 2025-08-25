@@ -44,12 +44,12 @@ def wdir(x): return os.path.join(dname, x)
 rc_threshold = config[dname]['thre_rc']
 ee_threshold = config[dname]['thre_ee']
 
-from transformers import BertTokenizer, BertModel, set_seed
+from transformers import CamembertTokenizer, CamembertModel, set_seed
 set_seed(52)
 
 if dname in ['pegazus-event-extraction']: plm_name = 'camembert-base' 
 else: plm_name = 'bert-base-cased'
-tokenizer = BertTokenizer.from_pretrained(plm_name, model_max_length=maxlen)
+tokenizer = CamembertTokenizer.from_pretrained(plm_name, model_max_length=maxlen)
 with open(os.path.join(datadir, 'rel2id.json')) as fin:
     rel_map = json.load(fin)
 rev_rel_map = {v:k for k,v in rel_map.items()}
@@ -181,7 +181,7 @@ def ee_collate_fn(items):
 class EEModel(nn.Module):
     def __init__(self, outd=4):
         super().__init__()
-        self.bert = BertModel.from_pretrained(plm_name)
+        self.bert = CamembertModel.from_pretrained(plm_name)
         self.fc = nn.Linear(768, outd)
     def forward(self, x):
         z = self.bert(x).last_hidden_state
