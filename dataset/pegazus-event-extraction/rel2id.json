@@ -1,0 +1,14 @@
+{
+  "appearsOn": 0,
+  "disappearsOn": 1,
+  "hasDisappearedRelationOn": 2,
+  "hasGeometryChangeOn": 3,
+  "hasNameChangeOn": 4,
+  "hasNewGeometry": 5,
+  "hasNewName": 6,
+  "hasOldName": 7,
+  "isLandmarkType": 8,
+  "isLandmarkTypeOf": 9,
+  "touches": 10,
+  "within": 11
+}
